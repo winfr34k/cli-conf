@@ -1,0 +1,3 @@
+[submodule "fsmaxb-config"]
+	path = fsmaxb-config
+	url = https://github.com/FSMaxB/config.git
