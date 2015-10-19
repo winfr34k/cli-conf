@@ -30,6 +30,10 @@ ln -s "${FSMAXB}/htoprc" "${HOME}/.config"
 #Hack for FSMaxB's .bashrc
 ln -s "${FSMAXB}/.ansi-colors" "${HOME}"
 
+#Configure vim as per FSMaxB's definiton
+hash vim 2> /dev/null && vim +PlugInstall +qall
+hash vim 2> /dev/null && vim +GitGutterEnable +qall
+
 #Launch the freshly configured shell
 if [[ $BASH == *"bash"* ]]; then
 	source "${HOME}/.bash_profile"
