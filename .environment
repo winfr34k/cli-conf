@@ -1,0 +1,13 @@
+#Setup some global variables
+export PATH="$HOME/.composer/vendor/bin:$HOME/miniconda/bin:$PATH"
+export CLI_CONF="$HOME/cli-conf"
+export FSMAXB="$CLI_CONF/fsmaxb-config"
+
+#Export the path to the oh-my-zsh lib if in ZSH
+if [[ $SHELL == *"zsh"* ]]; then
+	export ZSH="$CLI_CONF/.oh-my-zsh"
+fi
+
+#Set EDITOR and VISUAL to vim
+export EDITOR=vim
+export VISUAL=vim
