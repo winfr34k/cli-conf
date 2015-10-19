@@ -24,7 +24,7 @@ ln -s $CLI_CONF/.zshrc $HOME
 ln -s $FSMAXB/.vim $HOME
 ln -s $FSMAXB/.vimrc $HOME
 ln -s $HOME/.vim $HOME/.nvim
-ln -f $HOME/.vimrc $HOME/.nvimrc
+ln -s $HOME/.vimrc $HOME/.nvimrc
 ln -s $FSMAXB/htoprc $HOME/.config
 
 #Hack for FSMaxB's .bashrc
