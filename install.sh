@@ -30,7 +30,7 @@ ln -s "${FSMAXB}/htoprc" "${HOME}/.config"
 #Hack for FSMaxB's .bashrc
 ln -s "${FSMAXB}/.ansi-colors" "${HOME}"
 
-#Launch the freshly configures shell
+#Launch the freshly configured shell
 if [[ $BASH == *"bash"* ]]; then
 	source "${HOME}/.bash_profile"
 elif [[ $ZSH_NAME == *"zsh"*  ]]; then
