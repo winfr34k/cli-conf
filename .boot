@@ -1,3 +1,5 @@
 #Initialize default variables and aliases
-source $HOME/cli-conf/.environment
-source $CLI_CONF/.aliases
+source "${HOME}/cli-conf/.environment"
+source "${CLI_CONF}/.aliases"
+
+# vi:syntax=sh

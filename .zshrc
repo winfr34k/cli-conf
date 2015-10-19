@@ -1,5 +1,5 @@
 #Initialize
-source $HOME/cli-conf/.boot
+source "${HOME}/cli-conf/.boot"
 
 #Theme
 ZSH_THEME="cloud"
@@ -20,4 +20,4 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git osx sudo)
 
 #Load the oh-my-zsh config
-source $ZSH/oh-my-zsh.sh
+source "${ZSH}/oh-my-zsh.sh"

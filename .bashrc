@@ -3,4 +3,4 @@ FREESPACE=''
 GITBRANCH=''
 
 #Include FSMaxB's .bashrc
-source $FSMAXB/.bashrc-common
+source "${FSMAXB}/.bashrc-common"

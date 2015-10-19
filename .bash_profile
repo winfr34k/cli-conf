@@ -1,5 +1,5 @@
 #Initialize
-source $HOME/cli-conf/.boot
+source "${HOME}/cli-conf/.boot"
 
 #If there are bash completions by brew, include them
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -7,6 +7,6 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 #If there's a .bashrc, include it
-if [ -f $HOME/.bashrc ]; then
-	source $HOME/.bashrc
+if [ -f "${HOME}/.bashrc" ]; then
+	source "${HOME}/.bashrc"
 fi
