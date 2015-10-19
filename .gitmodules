@@ -1,3 +1,6 @@
 [submodule "fsmaxb-config"]
 	path = fsmaxb-config
 	url = https://github.com/FSMaxB/config.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
