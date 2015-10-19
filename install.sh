@@ -4,7 +4,7 @@ source $HOME/cli-conf/.boot
 
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install htop tmux vim tree wget cmake iperf python3 sqlite ssh-copy-id wakeonlan youtube-dl
+brew install htop tmux vim tree wget cmake iperf python3 rbenv sqlite ssh-copy-id wakeonlan youtube-dl 
 
 #Remove any annoying already existing file
 rm $HOME/.bash_profile
