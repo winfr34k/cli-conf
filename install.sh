@@ -13,9 +13,9 @@ chmod +x /usr/local/bin/composer
 rm "${HOME}/.bash_profile"
 rm "${HOME}/.bashrc"
 rm "${HOME}/.zshrc"
-rm -rf "${HOME}/.vim"
+rm "${HOME}/.vim"
 rm "${HOME}/.vimrc"
-rm -f "${HOME}/.config/htoprc"
+rm "${HOME}/.config/htoprc"
 
 #Make a new .config directory for the htoprc to live in
 mkdir "${HOME}/.config"
