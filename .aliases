@@ -25,4 +25,4 @@ alias wake="wakeonlan"
 alias nano=vim
 
 #Misc
-alias syncplay="source activate syncplay && python {$SYNCPLAY}/syncplayClient.py > /dev/null & source deactivate"
+alias syncplay="source activate syncplay && python ${SYNCPLAY}/syncplayClient.py > /dev/null & source deactivate"
