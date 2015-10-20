@@ -10,11 +10,14 @@ mv /usr/local/bin/composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 
 #Remove any annoying already existing file
+rm "${HOME}/.ansi-colors"
 rm "${HOME}/.bash_profile"
 rm "${HOME}/.bashrc"
 rm "${HOME}/.zshrc"
 rm "${HOME}/.vim"
 rm "${HOME}/.vimrc"
+rm "${HOME}/.nvim"
+rm "${HOME}/.nvimrc"
 rm "${HOME}/.config/htoprc"
 
 #Make a new .config directory for the htoprc to live in
