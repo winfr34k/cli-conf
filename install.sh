@@ -19,6 +19,7 @@ rm "${HOME}/.vimrc"
 rm "${HOME}/.nvim"
 rm "${HOME}/.nvimrc"
 rm "${HOME}/.config/htoprc"
+rm "${HOME}/.gitconfig"
 
 #Make a new .config directory for the htoprc to live in
 mkdir "${HOME}/.config"
@@ -39,6 +40,9 @@ ln -s "${FSMAXB}/.ansi-colors" "${HOME}"
 #Configure vim as per FSMaxB's definiton
 hash vim 2> /dev/null && vim +PlugInstall +qall
 hash vim 2> /dev/null && vim +GitGutterEnable +qall
+
+#Configure git
+ln -s "${CLI_CONF}/.gitconfig"
 
 #Launch the freshly configured shell
 if [[ $BASH == *"bash"* ]]; then
