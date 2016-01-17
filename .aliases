@@ -14,6 +14,9 @@ alias seed="php artisan db:seed"
 alias tinker="php artisan tinker"
 
 #Homestead
+function homestead() {
+    sh -c "cd ${HOMESTEAD} && exec vagrant ${1}"
+}
 alias up="homestead up"
 alias down="homestead halt"
 alias provision="homestead provision"
