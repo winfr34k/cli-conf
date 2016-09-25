@@ -1,6 +1,6 @@
 #Common
 alias cls="clear"
-alias md="makedir"
+alias md="mkdir"
 alias xcopy="cp"
 
 #Colors in manpages
@@ -42,4 +42,6 @@ alias wake="wakeonlan"
 alias nano=vim
 
 #Misc
+alias edit-aliases="vim ${HOME}/.aliases && source ${HOME}/.aliases"
+alias edit-global-aliases="vim ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
 alias syncplay="source activate syncplay && python ${SYNCPLAY}/syncplayClient.py > /dev/null & source deactivate"
