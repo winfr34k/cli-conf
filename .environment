@@ -1,5 +1,5 @@
 #Setup some global variables
-export PATH="${HOME}/.composer/vendor/bin:${HOME}/miniconda2/bin:${PATH}"
+export PATH="${HOME}/.composer/vendor/bin:${HOME}/miniconda2/bin:/usr/local/sbin:${PATH}"
 export CLI_CONF="${HOME}/cli-conf"
 export FSMAXB="${CLI_CONF}/modules/fsmaxb-config"
 export HOMESTEAD="${HOME}/Homestead"
