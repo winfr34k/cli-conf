@@ -6,6 +6,7 @@ set backspace=indent,eol,start                                          "Make ba
 let mapleader = ',' 						    	"The default leader is \, but a comma is much better.
 set number								"Let's activate line numbers.
 set linespace=15   						        "Macvim-specific line-height.
+set laststatus=2
 
 "-------------Search--------------"
 set hlsearch
