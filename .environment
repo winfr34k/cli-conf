@@ -3,6 +3,7 @@ export PATH="${HOME}/.composer/vendor/bin:${HOME}/miniconda2/bin:/usr/local/sbin
 export CLI_CONF="${HOME}/cli-conf"
 export FSMAXB="${CLI_CONF}/modules/fsmaxb-config"
 export HOMESTEAD="${HOME}/Homestead"
+export SDKMAN_DIR="${HOME}/.sdkman"
 
 #Export the path to the oh-my-zsh lib if in ZSH
 if [[ $ZSH_NAME == *"zsh"* ]]; then
@@ -15,10 +16,7 @@ if [ -f "${HOME}/syncplay/syncplayClient.py" ]; then
 fi
 
 #Set EDITOR and VISUAL to vim
-export EDITOR=vim
-export VISUAL=vim
-
-#Activate autojump if it is available
-[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+export EDITOR="vim"
+export VISUAL="vim"
 
 # vi:syntax=sh

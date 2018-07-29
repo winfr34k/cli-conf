@@ -7,4 +7,7 @@ if [ -f "${HOME}/.aliases" ]; then
     source "${HOME}/.aliases"
 fi
 
+#Activate autojump if it is available
+[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+
 # vi:syntax=sh

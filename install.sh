@@ -4,7 +4,9 @@ source "${HOME}/cli-conf/.boot"
 
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install htop tmux vim tree wget cmake iperf python3 rbenv sqlite ssh-copy-id autojump
+brew install htop tmux vim tree watch tig wget cmake iperf python3 ipython rbenv swiftlint sqlite ssh-copy-id autojump vim emacs
+brew tap buo/cask-upgrade
+brew cask install freac macdown mumble playonmac zenmap
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 mv /usr/local/bin/composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
@@ -52,3 +54,4 @@ elif [[ $ZSH_NAME == *"zsh"*  ]]; then
 else
 	echo "ERROR: No suitable shell config found!"
 fi
+
