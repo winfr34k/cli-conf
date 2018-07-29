@@ -26,6 +26,10 @@ rm "${HOME}/.gitconfig"
 #Make a new .config directory for the htoprc to live in
 mkdir "${HOME}/.config"
 
+#Create some default directories that I expect on a system
+mkdir "${HOME}/Sites"
+mkdir "${HOME}/repos"
+
 #Create some softlink to get most stuff setup
 ln -s "${CLI_CONF}/.bash_profile" "${HOME}"
 ln -s "${CLI_CONF}/.bashrc" "${HOME}"
