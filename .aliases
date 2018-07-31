@@ -2,6 +2,12 @@
 alias cls="clear"
 alias md="mkdir"
 alias xcopy="cp"
+alias h="cd ${HOME}"
+
+if [[ -d "${REPOS_PATH}" ]]; then
+    alias repos="cd ${REPOS_PATH}"
+    alias r="repos"
+fi
 
 #Colors in manpages
 man() {
@@ -16,6 +22,12 @@ man() {
             LANG='' \
                     man "$@"
 }
+
+#Dumb-dumb needs to learn to use vim instead of nano
+alias nano="vim"
+
+#Start emacs in the terminal instead of a windows
+alias emacs="emacs -nw"
 
 #Laravel
 alias artisan="php artisan"
@@ -35,15 +47,24 @@ alias up="homestead up"
 alias down="homestead halt"
 alias provision="homestead provision"
 
-#Network
-alias wake="wakeonlan"
+#iOS
+alias pod="bundle exec pod"
+alias fastlane="bundle exec fastlane"
+alias xcodeworkspace="open *xcw*"
+alias xcw="xcodeworkspace"
 
-#Dumb-dumb needs to learn to use vim instead of nano
-alias nano=vim
+#OS X specific - Quit Apple Terminal if all shells are closed
+if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
+    function quit_terminal_when_no_terminals_remain {
+        osascript -e 'tell application "Terminal" to if running and (count every tab of every window whose tty is not "'"$(tty)"'") is 0 then quit'
+    }
 
-#Start emacs in the terminal instead of a windows
-alias emacs="emacs -nw"
+    trap quit_terminal_when_no_terminals_remain EXIT
+fi
 
 #Misc
+alias edit-vimrc="vim ${HOME}/.vimrc"
 alias edit-aliases="vim ${HOME}/.aliases && source ${HOME}/.aliases"
 alias edit-global-aliases="vim ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
+
+# vi:syntax=sh
