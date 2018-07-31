@@ -1,0 +1,9 @@
+#This file contains everything that should be done AFTER the shell has loaded.
+
+#SDKMAN
+eval $(/usr/libexec/path_helper -s)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[[ -s "${SDKMAN_PATH}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PATH}/bin/sdkman-init.sh"
+
+# vi:syntax=sh
