@@ -4,12 +4,16 @@ source "${HOME}/cli-conf/.boot"
 
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install htop tmux vim tree watch tig wget cmake iperf python3 ipython rbenv swiftlint sqlite ssh-copy-id autojump vim emacs
+
+brew install htop tmux vim tree watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init swiftlint sqlite ssh-copy-id autojump vim emacs
 brew tap buo/cask-upgrade
 brew cask install freac macdown mumble playonmac zenmap
+
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 mv /usr/local/bin/composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
+
+curl https://sh.rustup.rs -sSf | sh
 
 #Remove any annoying already existing file
 rm "${HOME}/.ansi-colors"
@@ -58,4 +62,7 @@ elif [[ $ZSH_NAME == *"zsh"*  ]]; then
 else
 	echo "ERROR: No suitable shell config found!"
 fi
+
+echo "All done!"
+echo "Another interesting thing to install SDKMAN, but this should be done manually."
 
