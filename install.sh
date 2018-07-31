@@ -52,7 +52,8 @@ hash vim 2> /dev/null && vim +PlugInstall +qall
 hash vim 2> /dev/null && vim +GitGutterEnable +qall
 
 #Configure git
-ln -s "${CLI_CONF}/.gitconfig"
+cp "${CLI_CONF}/.gitconfig" "${HOME}"
+vim "${HOME}/.gitconfig"
 
 #Launch the freshly configured shell
 if [[ $BASH == *"bash"* ]]; then
