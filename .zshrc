@@ -21,3 +21,6 @@ plugins=(git osx sudo)
 
 #Load the oh-my-zsh config
 source "${ZSH}/oh-my-zsh.sh"
+
+#Execute stuff post-load
+source "${CLI_CONF}/.postsh"

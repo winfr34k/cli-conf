@@ -3,8 +3,9 @@ export CARGO_PATH="${HOME}/.cargo/bin"
 export UNZIP_PATH="/usr/local/opt/unzip/bin"
 export OPENSSL_PATH="/usr/local/opt/openssl/bin"
 export COMPOSER_PATH="${HOME}/.composer/vendor/bin"
+export SDKMAN_PATH="${HOME}/.sdkman"
 export HOMEBREW_SBIN="/usr/local/sbin"
-export PATH="${CARGO_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${COMPOSER_PATH}:${HOME}/miniconda2/bin:${HOMEBREW_SBIN}:${PATH}"
+export PATH="${CARGO_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${COMPOSER_PATH}:${HOMEBREW_SBIN}:${PATH}"
 export CLI_CONF="${HOME}/cli-conf"
 export FSMAXB="${CLI_CONF}/modules/fsmaxb-config"
 export HOMESTEAD="${HOME}/Homestead"
@@ -26,10 +27,7 @@ if [ -f "${HOME}/syncplay/syncplayClient.py" ]; then
 fi
 
 #Set EDITOR and VISUAL to vim
-export EDITOR=vim
-export VISUAL=vim
-
-#Activate autojump if it is available
-[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+export EDITOR="vim"
+export VISUAL="vim"
 
 # vi:syntax=sh
