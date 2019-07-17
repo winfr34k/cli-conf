@@ -1,5 +1,8 @@
 #This file contains everything that should be done AFTER the shell has loaded.
 
+#Kubectl completions
+source <(kubectl completion zsh)
+
 #SDKMAN
 eval $(/usr/libexec/path_helper -s)
 

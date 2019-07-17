@@ -29,6 +29,9 @@ alias nano="vim"
 #Start emacs in the terminal instead of a windows
 alias emacs="emacs -nw"
 
+#Make IntelliJ command line startable
+alias idea='open -a "$(ls -dt ${HOME}/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/*.app|head -1)"'
+
 #Laravel
 alias artisan="php artisan"
 alias serve="php artisan serve"
@@ -40,7 +43,7 @@ alias seed="php artisan db:seed"
 alias tinker="php artisan tinker"
 
 #Homestead
-function homestead() {
+function homestead {
     sh -c "cd ${HOMESTEAD} && exec vagrant ${1}"
 }
 alias up="homestead up"
@@ -52,6 +55,7 @@ alias pod="bundle exec pod"
 alias fastlane="bundle exec fastlane"
 alias xcodeworkspace="open *xcw*"
 alias xcw="xcodeworkspace"
+alias clean-derived-data="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData/*"
 
 #OS X specific - Quit Apple Terminal if all shells are closed
 if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
@@ -66,5 +70,10 @@ fi
 alias edit-vimrc="vim ${HOME}/.vimrc"
 alias edit-aliases="vim ${HOME}/.aliases && source ${HOME}/.aliases"
 alias edit-global-aliases="vim ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
+alias edit-environment="vim ${HOME}/.environment && source ${HOME}/.environment"
+alias edit-global-environment="vim ${CLI_CONF}/.environment && source ${CLI_CONF}/.environment"
+function tolower {
+    echo "${1}" | awk '{print tolower($0)}'
+}
 
 # vi:syntax=sh
