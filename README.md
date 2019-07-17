@@ -6,7 +6,7 @@ The configurations files I use in order to get comfortable with the CLI.
 
 ### Cloning this repository
 Simply do `git clone --recursive https://github.com/winfr34k/cli-conf.git`.  
-This will download *both* FSMaxB's config repository as well as oh-my-zsh (the "frameworks" I use to build my config upon).
+This will download oh-my-zsh (a "framework" I use to build my zsh config upon).
 
 ### Pulling this repository (aka updating it)
 If you want to be up to date with the config, just do:
