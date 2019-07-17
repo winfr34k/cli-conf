@@ -32,6 +32,32 @@ alias emacs="emacs -nw"
 #Make IntelliJ command line startable
 alias idea='open -a "$(ls -dt ${HOME}/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/*.app|head -1)"'
 
+#Docker
+alias docker-prune='for CONTAINER in $(docker ps -a | tail -n +2  | cut -d" " -f1); do docker rm "${CONTAINER}"; done'
+alias dprune="docker-prune"
+alias dlog="docker logs"
+alias dlogs="dlog"
+alias dflog="docker logs -f"
+alias dflogs="dflog"
+
+#Docker services
+alias start-mongodb="docker run --rm --name=mongodb --network=mongo -d -p 27017:27017 -v \"${DOCKER_DATA_PATH}/mongodb:/data/db\" mongo:latest"
+alias stop-mongodb="docker stop mongodb"
+alias kill-mongodb="docker kill mongodb"
+alias mongo="docker run --rm --name=mongo --network=mongo --link mongodb:mongodb -it mongo:latest mongo --host mongodb"
+alias mongoimport="docker run --rm --network=mongo --link mongodb:mongodb -i mongo:latest mongoimport --host mongodb"
+alias mongoexport="docker run --rm --network=mongo --link mongodb:mongodb -i mongo:latest mongoexport --host mongodb"
+alias import-mongo='for COLLECTION in $(ls -1 *.json | sed "s/\.json//"); do echo "=== Importing `${COLLECTION}` into `${DB}` ..."; done; cat "${COLLECTION}.json" | mongoimport --db "${DB}" --collection "${COLLECTION}"; done'
+alias start-postgres="docker run --rm --name=postgres --network=postgres -d -p 5432:5432 -v \"${DOCKER_DATA_PATH}/postgres:/var/lib/postgresql/data\" postgres:9.6"
+alias stop-postgres="docker stop postgres"
+alias kill-postgres="docker kill postgres"
+alias psql="docker run --rm --name=psql --network=postgres --link postgres:postgres -it postgres:9.6 psql --host postgres --user postgres"
+alias psqli="docker run --rm --name=psql --network=postgres --link postgres:postgres -i postgres:9.6 psql --host postgres"
+
+#Profile management
+alias show-profile='if [ -z ${ACTIVATED_PROFILE} ]; then echo "No profile activated."; else echo "Activated profile: ${ACTIVATED_PROFILE}"; fi'
+alias reset-env='foreach VAR in $(env | cut -d"=" -f1 | grep -v "PATH\|TERM_SESSION_ID\|SSH_AUTH_SOCK\|Apple_PubSub_Socket_Render\|COLORFGBG\|ITERM_PROFILE\|XPC_FLAGS\|LANG\|SHELL\|TERM*\|PWD\|DISPLAY\|HOME\|TMPDIR\|USER\|XPC_SERVICE_NAME\|LOGNAME\|__CF_USER_TEXT_ENCODING\|SHLVL" | sed -e "$ d"); unset $VAR; end; source "${HOME}/.zshrc"'
+
 #Laravel
 alias artisan="php artisan"
 alias serve="php artisan serve"
@@ -42,14 +68,6 @@ alias reset="php artisan migrate:reset"
 alias seed="php artisan db:seed"
 alias tinker="php artisan tinker"
 
-#Homestead
-function homestead {
-    sh -c "cd ${HOMESTEAD} && exec vagrant ${1}"
-}
-alias up="homestead up"
-alias down="homestead halt"
-alias provision="homestead provision"
-
 #iOS
 alias pod="bundle exec pod"
 alias fastlane="bundle exec fastlane"
@@ -57,21 +75,14 @@ alias xcodeworkspace="open *xcw*"
 alias xcw="xcodeworkspace"
 alias clean-derived-data="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData/*"
 
-#OS X specific - Quit Apple Terminal if all shells are closed
-if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
-    function quit_terminal_when_no_terminals_remain {
-        osascript -e 'tell application "Terminal" to if running and (count every tab of every window whose tty is not "'"$(tty)"'") is 0 then quit'
-    }
-
-    trap quit_terminal_when_no_terminals_remain EXIT
-fi
-
-#Misc
+#Config management
 alias edit-vimrc="vim ${HOME}/.vimrc"
 alias edit-aliases="vim ${HOME}/.aliases && source ${HOME}/.aliases"
 alias edit-global-aliases="vim ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
 alias edit-environment="vim ${HOME}/.environment && source ${HOME}/.environment"
 alias edit-global-environment="vim ${CLI_CONF}/.environment && source ${CLI_CONF}/.environment"
+
+#Misc
 function tolower {
     echo "${1}" | awk '{print tolower($0)}'
 }
