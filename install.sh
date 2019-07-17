@@ -5,7 +5,7 @@ source "${HOME}/cli-conf/.boot"
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install htop tmux vim tree watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init swiftlint sqlite ssh-copy-id autojump vim emacs kubernetes-cli
+brew install htop tmux vim tree loc watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init golang swiftlint sqlite ssh-copy-id autojump vim emacs kubernetes-cli
 brew tap buo/cask-upgrade
 brew cask install freac macdown mumble playonmac zenmap
 
@@ -31,11 +31,11 @@ rm "${HOME}/.gitconfig"
 mkdir "${HOME}/.config"
 
 #Create some default directories that I expect on a system
-mkdir "${HOME}/Sites"
-mkdir "${HOME}/repos"
-mkdir "${HOME}/DockerData"
-mkdir "${HOME}/noreturn"
-mkdir "${HOME}/demo"
+mkdir "${SITES_PATH}"
+mkdir "${REPOS_PATH}"
+mkdir "${GO_PATH}"
+mkdir "${DOCKER_DATA_PATH}"
+mkdir "${DEMO_PATH}"
 
 #Create some softlink to get most stuff setup
 ln -s "${CLI_CONF}/.bash_profile" "${HOME}"
