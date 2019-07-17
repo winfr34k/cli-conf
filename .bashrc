@@ -6,7 +6,7 @@ FREESPACE=''
 GITBRANCH=''
 
 #Include FSMaxB's .bashrc
-source "${FSMAXB}/.bashrc-common"
+source "${CLI_CONF}/.bashrc-common"
 
 #Execute stuff post-load
 source "${CLI_CONF}/.postsh"

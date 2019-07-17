@@ -41,14 +41,14 @@ mkdir "${DEMO_PATH}"
 ln -s "${CLI_CONF}/.bash_profile" "${HOME}"
 ln -s "${CLI_CONF}/.bashrc" "${HOME}"
 ln -s "${CLI_CONF}/.zshrc" "${HOME}"
-ln -s "${FSMAXB}/.vim" "${HOME}"
-ln -s "${FSMAXB}/.vimrc" "${HOME}"
+ln -s "${CLI_CONF}/.vim" "${HOME}"
+ln -s "${CLI_CONF}/.vimrc" "${HOME}"
 ln -s "${HOME}/.vim" "${HOME}/.nvim"
 ln -s "${HOME}/.vimrc" "${HOME}/.nvimrc"
-ln -s "${FSMAXB}/htoprc" "${HOME}/.config"
+ln -s "${CLI_CONF}/htoprc" "${HOME}/.config"
 
 #Hack for FSMaxB's .bashrc
-ln -s "${FSMAXB}/.ansi-colors" "${HOME}"
+ln -s "${CLI_CONF}/.ansi-colors" "${HOME}"
 
 #Configure vim as per FSMaxB's definiton
 hash vim 2> /dev/null && vim +PlugInstall +qall
