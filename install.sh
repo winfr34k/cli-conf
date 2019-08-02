@@ -5,15 +5,24 @@ source "${HOME}/cli-conf/.boot"
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+#Install some basic utilities and compilers
 brew install htop tmux vim tree loc watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init golang swiftlint sqlite ssh-copy-id autojump vim emacs kubernetes-cli
 brew tap buo/cask-upgrade
+
+#Install some general GUI apps
 brew cask install freac macdown mumble playonmac zenmap
 
+#Install Rust
+curl https://sh.rustup.rs -sSf | sh
+
+#Install Java
+brew tap AdoptOpenJDK/openjdk
+brew install adoptopenjdk8 adoptopenjdk8-jre adoptopenjdk12 adoptopenjdk12-jre
+
+#Install PHP Composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 mv /usr/local/bin/composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
-
-curl https://sh.rustup.rs -sSf | sh
 
 #Remove any annoying already existing file
 rm "${HOME}/.ansi-colors"
