@@ -5,9 +5,11 @@ source "${HOME}/cli-conf/.boot"
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install htop tmux vim tree loc watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init golang swiftlint sqlite ssh-copy-id autojump vim emacs kubernetes-cli
-brew tap buo/cask-upgrade
-brew cask install freac macdown mumble playonmac zenmap
+brew install htop tmux vim tree loc watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init golang swiftlint sqlite autojump vim emacs kubernetes-cli
+brew install --cask freac macdown playonmac zenmap
+
+brew tap AdoptOpenJDK/openjdk
+brew install --cask aadoptopenjdk8 doptopenjdk15
 
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 mv /usr/local/bin/composer.phar /usr/local/bin/composer
