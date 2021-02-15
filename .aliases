@@ -38,7 +38,13 @@ alias dprune="docker-prune"
 alias dlog="docker logs"
 alias dlogs="dlog"
 alias dflog="docker logs -f"
-alias dflogs="dflog"
+function dflogs-all {
+    for c in $(docker ps -a --format="{{.Names}}"); do
+       docker logs -f $c > /tmp/$c.log 2> /tmp/$c.err &
+    done
+    tail -f /tmp/*.{log,err}
+}
+alias dflog-all="dflogs-all"
 
 #Docker services
 alias start-mongodb="docker run --rm --name=mongodb --network=mongo -d -p 27017:27017 -v \"${DOCKER_DATA_PATH}/mongodb:/data/db\" mongo:latest"
@@ -48,11 +54,11 @@ alias mongo="docker run --rm --name=mongo --network=mongo --link mongodb:mongodb
 alias mongoimport="docker run --rm --network=mongo --link mongodb:mongodb -i mongo:latest mongoimport --host mongodb"
 alias mongoexport="docker run --rm --network=mongo --link mongodb:mongodb -i mongo:latest mongoexport --host mongodb"
 alias import-mongo='for COLLECTION in $(ls -1 *.json | sed "s/\.json//"); do echo "=== Importing `${COLLECTION}` into `${DB}` ..."; done; cat "${COLLECTION}.json" | mongoimport --db "${DB}" --collection "${COLLECTION}"; done'
-alias start-postgres="docker run --rm --name=postgres --network=postgres -d -p 5432:5432 -v \"${DOCKER_DATA_PATH}/postgres:/var/lib/postgresql/data\" postgres:9.6"
+alias start-postgres="docker run --rm --name=postgres --network=postgres -d -p 6432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -v \"${DOCKER_DATA_PATH}/postgres:/var/lib/postgresql/data\" postgres:12-alpine"
 alias stop-postgres="docker stop postgres"
 alias kill-postgres="docker kill postgres"
-alias psql="docker run --rm --name=psql --network=postgres --link postgres:postgres -it postgres:9.6 psql --host postgres --user postgres"
-alias psqli="docker run --rm --name=psql --network=postgres --link postgres:postgres -i postgres:9.6 psql --host postgres"
+alias psql="docker run --rm --name=psql --network=postgres --link postgres:postgres -it postgres:12-alpine psql --host postgres --user postgres"
+alias psqli="docker run --rm --name=psql --network=postgres --link postgres:postgres -i postgres:12-alpine psql --host postgres"
 
 #Profile management
 alias show-profile='if [ -z ${ACTIVATED_PROFILE} ]; then echo "No profile activated."; else echo "Activated profile: ${ACTIVATED_PROFILE}"; fi'
