@@ -36,8 +36,18 @@ if [ -f "${HOME}/syncplay/syncplayClient.py" ]; then
 	export SYNCPLAY="${HOME}/syncplay"
 fi
 
+#Locales
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 #Set EDITOR and VISUAL to vim
 export EDITOR="vim"
 export VISUAL="vim"
+
+#Opt out of stupid stuff
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+#Rbenv
+eval "$(rbenv init -)"
 
 # vi:syntax=sh
