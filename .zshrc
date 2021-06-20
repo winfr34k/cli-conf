@@ -13,8 +13,10 @@ COMPLETION_WAITING_DOTS="true"
 #Hack to make VCS status checking faster
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+#Include brew-specific site functions
+if command -v brew > /dev/null; then
+    ZSH_CUSTOM="/usr/local/share/zsh/site-functions"
+fi
 
 # Plugins to load for zsh
 plugins=(git osx sudo)
