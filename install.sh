@@ -8,9 +8,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install htop tmux vim tree loc watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init golang swiftlint sqlite autojump vim emacs kubernetes-cli
 brew install --cask freac macdown playonmac zenmap
 
+#Install Java
 brew tap AdoptOpenJDK/openjdk
-brew install --cask aadoptopenjdk8 doptopenjdk15
+brew install --cask adoptopenjdk8 adoptopenjdk15
 
+#Install Rust
+rustup-init --default-host x86_64-apple-darwin --default-toolchain stable --profile default --no-modify-path -y
+
+#Install PHP Composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 mv /usr/local/bin/composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
