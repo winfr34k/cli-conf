@@ -13,7 +13,6 @@ export SITES_PATH="${HOME}/Sites"
 export GO_PATH="${HOME}/go"
 export GO_BIN_PATH="${GO_PATH}/bin"
 export CLI_CONF="${HOME}/cli-conf"
-export FSMAXB="${CLI_CONF}/modules/fsmaxb-config"
 export HOMESTEAD="${HOME}/Homestead"
 
 export PATH="${ANDROID_PATH}:${CARGO_PATH}:${GO_BIN_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${COMPOSER_PATH}:${HOMEBREW_SBIN_PATH}:${PATH}"
