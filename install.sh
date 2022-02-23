@@ -42,6 +42,7 @@ rm "${HOME}/.gitconfig"
 mkdir "${HOME}/.config"
 
 #Create some default directories that I expect on a system
+mkdir "${USER_BIN_PATH}"
 mkdir "${SITES_PATH}"
 mkdir "${REPOS_PATH}"
 mkdir "${GO_PATH}"

@@ -5,12 +5,13 @@ export DEMO_PATH="${HOME}/demo"
 export DOCKER_DATA_PATH="${HOME}/DockerData"
 export SITES_PATH="${HOME}/Sites"
 
+export USER_BIN_PATH="${HOME}/bin"
 export GO_PATH="${HOME}/go"
 export GO_BIN_PATH="${GO_PATH}/bin"
 export CARGO_PATH="${HOME}/.cargo/bin"
 export COMPOSER_PATH="${HOME}/.composer/vendor/bin"
 
-export PATH="${CARGO_PATH}:${GO_BIN_PATH}:${COMPOSER_PATH}:${PATH}"
+export PATH="${USER_BIN_PATH}:${CARGO_PATH}:${GO_BIN_PATH}:${COMPOSER_PATH}:${PATH}"
 
 #macOS specific includes
 if [ uname = "Darwin" ]; then
