@@ -1,29 +1,36 @@
-#Setup some global variables
-export ANDROID_PATH="${HOME}/Library/Android/sdk/platform-tools:${HOME}/Library/Android/sdk/tools"
-export CARGO_PATH="${HOME}/.cargo/bin"
-export UNZIP_PATH="/usr/local/opt/unzip/bin"
-export OPENSSL_PATH="/usr/local/opt/openssl/bin"
-export COMPOSER_PATH="${HOME}/.composer/vendor/bin"
-export SDKMAN_PATH="${HOME}/.sdkman"
-export HOMEBREW_SBIN_PATH="/usr/local/sbin"
+#Setup some global variables and extend the PATH
+export CLI_CONF="${HOME}/cli-conf"
 export REPOS_PATH="${HOME}/repos"
 export DEMO_PATH="${HOME}/demo"
 export DOCKER_DATA_PATH="${HOME}/DockerData"
 export SITES_PATH="${HOME}/Sites"
+
 export GO_PATH="${HOME}/go"
 export GO_BIN_PATH="${GO_PATH}/bin"
-export CLI_CONF="${HOME}/cli-conf"
-export HOMESTEAD="${HOME}/Homestead"
+export CARGO_PATH="${HOME}/.cargo/bin"
+export COMPOSER_PATH="${HOME}/.composer/vendor/bin"
 
-export PATH="${ANDROID_PATH}:${CARGO_PATH}:${GO_BIN_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${COMPOSER_PATH}:${HOMEBREW_SBIN_PATH}:${PATH}"
+export PATH="${CARGO_PATH}:${GO_BIN_PATH}:${COMPOSER_PATH}:${PATH}"
 
-if [[ -d "${OPENSSL_PATH}" ]]; then
-	export LDFLAGS="-L/usr/local/opt/openssl/lib"
-	export CPPFLAGS="-I/usr/local/opt/openssl/include"
-	export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+#macOS specific includes
+if [ uname = "Darwin" ]; then
+	export ANDROID_PATH="${HOME}/Library/Android/sdk/platform-tools:${HOME}/Library/Android/sdk/tools"
+	export UNZIP_PATH="/usr/local/opt/unzip/bin"
+	export OPENSSL_PATH="/usr/local/opt/openssl/bin"
+	export SDKMAN_PATH="${HOME}/.sdkman"
+	export HOMEBREW_SBIN_PATH="/usr/local/sbin"
+	export HOMESTEAD="${HOME}/Homestead"
+
+	export PATH="${ANDROID_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${HOMEBREW_SBIN_PATH}:${PATH}"
+
+	if [[ -d "${OPENSSL_PATH}" ]]; then
+		export LDFLAGS="-L/usr/local/opt/openssl/lib"
+		export CPPFLAGS="-I/usr/local/opt/openssl/include"
+		export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+	fi
+
+	export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 fi
-
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 #Export the path to the oh-my-zsh lib if in ZSH
 if [[ $ZSH_NAME == *"zsh"* ]]; then
@@ -47,6 +54,9 @@ export VISUAL="vim"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 #Rbenv
-eval "$(rbenv init -)"
+if command -v rbenv > /dev/null; then
+	eval "$(rbenv init -)"
+fi
 
 # vi:syntax=sh
+

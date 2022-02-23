@@ -13,6 +13,11 @@ if [ -f "${HOME}/.environment" ]; then
 fi
 
 #Activate autojump if it is available
-[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+AUTOJUMP_PATH="/etc/profile.d/autojump.sh"
+if [ uname = "Darwin" ]; then
+    AUTOJUMP_PATH="/usr/local${AUTOJUMP_PATH}"
+fi
+[ -f $AUTOJUMP_PATH ] && source $AUTOJUMP_PATH
 
 # vi:syntax=sh
+

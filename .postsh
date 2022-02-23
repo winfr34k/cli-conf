@@ -1,12 +1,13 @@
 #This file contains everything that should be done AFTER the shell has loaded.
 
 #Kubectl completions
-source <(kubectl completion zsh)
+command -v kubectl > /dev/null && source <(kubectl completion zsh)
 
 #SDKMAN
-eval $(/usr/libexec/path_helper -s)
+[ uname = "Darwin" ] && command -v /usr/libexec/path_helper > /dev/null && eval $(/usr/libexec/path_helper -s)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "${SDKMAN_PATH}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PATH}/bin/sdkman-init.sh"
+[[ -f "${SDKMAN_PATH}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PATH}/bin/sdkman-init.sh"
 
 # vi:syntax=sh
+

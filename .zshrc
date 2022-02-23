@@ -19,10 +19,15 @@ if command -v brew > /dev/null; then
 fi
 
 # Plugins to load for zsh
-plugins=(git osx sudo)
+if [ uname = "Darwin" ]; then
+    plugins=(git osx sudo)
+else
+    plugins=(git sudo)
+fi
 
 #Load the oh-my-zsh config
 source "${ZSH}/oh-my-zsh.sh"
 
 #Execute stuff post-load
 source "${CLI_CONF}/.postsh"
+

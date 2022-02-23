@@ -29,8 +29,17 @@ alias nano="vim"
 #Start emacs in the terminal instead of a windows
 alias emacs="emacs -nw"
 
-#Make IntelliJ command line startable
-alias idea='open -a "$(ls -dt ${HOME}/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/*.app|head -1)"'
+if [ uname = "Darwin" ]; then
+    #Make IntelliJ command line startable
+    alias idea='open -a "$(ls -dt ${HOME}/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/*.app|head -1)"'
+
+    #iOS
+    alias pod="bundle exec pod"
+    alias fastlane="bundle exec fastlane"
+    alias xcodeworkspace="open *xcw*"
+    alias xcw="xcodeworkspace"
+    alias clean-derived-data="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData/*"
+fi
 
 #Docker
 alias docker-prune='for CONTAINER in $(docker ps -a | tail -n +2  | cut -d" " -f1); do docker rm "${CONTAINER}"; done'
@@ -74,13 +83,6 @@ alias reset="php artisan migrate:reset"
 alias seed="php artisan db:seed"
 alias tinker="php artisan tinker"
 
-#iOS
-alias pod="bundle exec pod"
-alias fastlane="bundle exec fastlane"
-alias xcodeworkspace="open *xcw*"
-alias xcw="xcodeworkspace"
-alias clean-derived-data="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData/*"
-
 #Config management
 alias edit-vimrc="vim ${HOME}/.vimrc"
 alias edit-aliases="vim ${HOME}/.aliases && source ${HOME}/.aliases"
@@ -94,3 +96,4 @@ function tolower {
 }
 
 # vi:syntax=sh
+
