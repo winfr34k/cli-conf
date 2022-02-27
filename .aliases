@@ -84,11 +84,11 @@ alias seed="php artisan db:seed"
 alias tinker="php artisan tinker"
 
 #Config management
-alias edit-vimrc="vim ${HOME}/.vimrc"
-alias edit-aliases="vim ${HOME}/.aliases && source ${HOME}/.aliases"
-alias edit-global-aliases="vim ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
-alias edit-environment="vim ${HOME}/.environment && source ${HOME}/.environment"
-alias edit-global-environment="vim ${CLI_CONF}/.environment && source ${CLI_CONF}/.environment"
+alias edit-vimrc="${EDITOR} ${HOME}/.vimrc"
+alias edit-aliases="${EDITOR} ${HOME}/.aliases && source ${HOME}/.aliases"
+alias edit-global-aliases="${EDITOR} ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
+alias edit-environment="${EDITOR} ${HOME}/.environment && source ${HOME}/.environment"
+alias edit-global-environment="${EDITOR} ${CLI_CONF}/.environment && source ${CLI_CONF}/.environment"
 
 #Misc
 function tolower {
