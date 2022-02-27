@@ -89,6 +89,8 @@ alias edit-aliases="${EDITOR} ${HOME}/.aliases && source ${HOME}/.aliases"
 alias edit-global-aliases="${EDITOR} ${CLI_CONF}/.aliases && source ${CLI_CONF}/.aliases"
 alias edit-environment="${EDITOR} ${HOME}/.environment && source ${HOME}/.environment"
 alias edit-global-environment="${EDITOR} ${CLI_CONF}/.environment && source ${CLI_CONF}/.environment"
+alias edit-postsh="${EDITOR} ${HOME}/.postsh && source ${HOME}/.postsh"
+alias edit-global-postsh="${EDITOR} ${CLI_CONF}/.postsh && source ${CLI_CONF}/.postsh"
 
 #Misc
 function tolower {

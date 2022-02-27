@@ -9,5 +9,10 @@ command -v kubectl > /dev/null && source <(kubectl completion zsh)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -f "${SDKMAN_PATH}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PATH}/bin/sdkman-init.sh"
 
+#Machine-local postsh actions
+if [ -f "${HOME}/.postsh" ]; then
+    source "${HOME}/.postsh"
+fi
+
 # vi:syntax=sh
 
