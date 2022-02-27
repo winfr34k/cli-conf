@@ -1,15 +1,15 @@
-#Initialize default variables and aliases
+#Initialize default variables
 source "${HOME}/cli-conf/.environment"
-source "${CLI_CONF}/.aliases"
-
-#Machine-local aliases
-if [ -f "${HOME}/.aliases" ]; then
-    source "${HOME}/.aliases"
-fi
-
 #Machine-local environment
 if [ -f "${HOME}/.environment" ]; then
     source "${HOME}/.environment"
+fi
+
+#Initialize default aliases
+source "${CLI_CONF}/.aliases"
+#Machine-local aliases
+if [ -f "${HOME}/.aliases" ]; then
+    source "${HOME}/.aliases"
 fi
 
 #Activate autojump if it is available
