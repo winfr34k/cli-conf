@@ -71,9 +71,9 @@ cp "${CLI_CONF}/.gitconfig" "${HOME}"
 vim "${HOME}/.gitconfig"
 
 #Launch the freshly configured shell
-if [[ $BASH == *"bash"* ]]; then
+if [ ! -z "$BASH" ]; then
 	source "${HOME}/.bash_profile"
-elif [[ $ZSH_NAME == *"zsh"*  ]]; then
+elif [ ! -z "$ZSH_NAME" ]; then
 	source "${HOME}/.zshrc"
 else
 	echo "ERROR: No suitable shell config found!"
