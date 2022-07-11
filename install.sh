@@ -2,15 +2,18 @@
 #Initialize
 source "${HOME}/cli-conf/.boot"
 
-if [ uname = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
 	#Prepare the computer, install brew etc.
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 	#Get access to versioned casks
 	brew tap homebrew/cask-versions
 
+	#Get access to fonts
+	brew tap homebrew/cask-fonts
+
 	brew install htop tmux vim loc watch httpie jq wget iperf3 nmap python3 rbenv rustup-init php composer golang swiftlint sqlite autojump emacs kubernetes-cli mas
-	brew install --cask firefox freac macdown docker
+	brew install --cask firefox freac macdown keepassxc font-jetbrains-mono jetbrains-toolbox
 
 	#Install Java
 	brew install --cask temurin17

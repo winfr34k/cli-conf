@@ -29,7 +29,7 @@ alias nano="vim"
 #Start emacs in the terminal instead of a windows
 alias emacs="emacs -nw"
 
-if [ uname = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     #Make IntelliJ command line startable
     alias idea='open -a "$(ls -dt ${HOME}/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/*.app|head -1)"'
 

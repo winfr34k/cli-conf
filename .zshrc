@@ -19,8 +19,8 @@ if command -v brew > /dev/null; then
 fi
 
 # Plugins to load for zsh
-if [ uname = "Darwin" ]; then
-    plugins=(git osx sudo)
+if [ "$(uname)" = "Darwin" ]; then
+    plugins=(git macos sudo)
 else
     plugins=(git sudo)
 fi

@@ -14,8 +14,8 @@ fi
 
 #Activate autojump if it is available
 AUTOJUMP_PATH="/etc/profile.d/autojump.sh"
-if [ uname = "Darwin" ]; then
-    AUTOJUMP_PATH="/usr/local${AUTOJUMP_PATH}"
+if [ "$(uname)" = "Darwin" ]; then
+    AUTOJUMP_PATH="${HOMEBREW_PREFIX}${AUTOJUMP_PATH}"
 fi
 [ -f $AUTOJUMP_PATH ] && source $AUTOJUMP_PATH
 

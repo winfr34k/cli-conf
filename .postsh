@@ -4,7 +4,10 @@
 command -v kubectl > /dev/null && source <(kubectl completion zsh)
 
 #SDKMAN
-[ uname = "Darwin" ] && command -v /usr/libexec/path_helper > /dev/null && eval $(/usr/libexec/path_helper -s)
+if [ "$(uname)" = "Darwin" ]; then
+    command -v /usr/libexec/path_helper > /dev/null && eval $(/usr/libexec/path_helper -s)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -f "${SDKMAN_PATH}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PATH}/bin/sdkman-init.sh"
