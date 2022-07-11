@@ -6,22 +6,17 @@ if [ uname = "Darwin" ]; then
 	#Prepare the computer, install brew etc.
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	brew install htop tmux vim tree loc watch unzip openssl httpie jq tig wget cmake iperf python3 ipython rbenv rustup-init golang swiftlint sqlite autojump vim emacs kubernetes-cli
-	brew install --cask freac macdown playonmac zenmap
+	#Get access to versioned casks
+	brew tap homebrew/cask-versions
+
+	brew install htop tmux vim loc watch httpie jq wget iperf3 nmap python3 rbenv rustup-init php composer golang swiftlint sqlite autojump emacs kubernetes-cli mas
+	brew install --cask firefox freac macdown docker
 
 	#Install Java
-	brew tap AdoptOpenJDK/openjdk
-	brew install --cask adoptopenjdk8 adoptopenjdk15
+	brew install --cask temurin17
 
 	#Install Rust
-	rustup-init --default-host x86_64-apple-darwin --default-toolchain stable --profile default --no-modify-path -y
-
-	#Install PHP Composer
-	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
-	mv /usr/local/bin/composer.phar /usr/local/bin/composer
-	chmod +x /usr/local/bin/composer
-
-	curl https://sh.rustup.rs -sSf | sh
+	rustup-init --default-toolchain stable --profile default --no-modify-path -y
 else
 	echo "Skipping installation of packages as we're not on a Mac."
 fi
