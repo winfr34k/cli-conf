@@ -11,27 +11,6 @@ export GO_BIN_PATH="${GO_PATH}/bin"
 export CARGO_PATH="${HOME}/.cargo/bin"
 export COMPOSER_PATH="${HOME}/.composer/vendor/bin"
 
-export PATH="${USER_BIN_PATH}:${CARGO_PATH}:${GO_BIN_PATH}:${COMPOSER_PATH}:${PATH}"
-
-#macOS specific includes
-if [ "$(uname)" = "Darwin" ]; then
-	export ANDROID_PATH="${HOME}/Library/Android/sdk/platform-tools:${HOME}/Library/Android/sdk/tools"
-	export UNZIP_PATH="/usr/local/opt/unzip/bin"
-	export OPENSSL_PATH="/usr/local/opt/openssl/bin"
-	export SDKMAN_PATH="${HOME}/.sdkman"
-	export HOMESTEAD="${HOME}/Homestead"
-
-	export PATH="${ANDROID_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${PATH}"
-
-	if [[ -d "${OPENSSL_PATH}" ]]; then
-		export LDFLAGS="-L/usr/local/opt/openssl/lib"
-		export CPPFLAGS="-I/usr/local/opt/openssl/include"
-		export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
-	fi
-
-	export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
-fi
-
 #Export the path to the oh-my-zsh lib if in ZSH
 if [[ $ZSH_NAME == *"zsh"* ]]; then
 	export ZSH="${CLI_CONF}/modules/robbyrussell-oh-my-zsh"
@@ -56,6 +35,35 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 #Rbenv
 if command -v rbenv > /dev/null; then
 	eval "$(rbenv init -)"
+fi
+
+#Setup PATH
+export PATH="${USER_BIN_PATH}:${CARGO_PATH}:${GO_BIN_PATH}:${COMPOSER_PATH}:${PATH}"
+
+#macOS specific includes
+if [ "$(uname)" = "Darwin" ]; then
+	export ANDROID_PATH="${HOME}/Library/Android/sdk/platform-tools:${HOME}/Library/Android/sdk/tools"
+	export UNZIP_PATH="/usr/local/opt/unzip/bin"
+	export OPENSSL_PATH="/usr/local/opt/openssl/bin"
+	export SDKMAN_PATH="${HOME}/.sdkman"
+	export HOMESTEAD="${HOME}/Homestead"
+
+	if [[ -d "${OPENSSL_PATH}" ]]; then
+		export LDFLAGS="-L/usr/local/opt/openssl/lib"
+		export CPPFLAGS="-I/usr/local/opt/openssl/include"
+		export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+	fi
+
+	export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
+
+	export PATH="${ANDROID_PATH}:${UNZIP_PATH}:${OPENSSL_PATH}:${PATH}"
+
+	#Load homebrew paths on macOS if it's installed
+	if [ -f /opt/homebrew/bin/brew ]; then
+		eval "$(/opt/homebrew/bin/brew shellenv)"
+	elif [ -f /usr/local/homebrew/bin/brew ]; then
+		eval "$(/usr/local/homebrew/bin/brew shellenv)"
+	fi
 fi
 
 # vi:syntax=sh

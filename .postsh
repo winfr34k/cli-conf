@@ -1,17 +1,9 @@
 #This file contains everything that should be done AFTER the shell has loaded.
 
-# Load homebrew paths on macOS
-[ "$(uname)" = "Darwin" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 #Kubectl completions
 command -v kubectl > /dev/null && source <(kubectl completion zsh)
 
 #SDKMAN
-if [ "$(uname)" = "Darwin" ]; then
-    command -v /usr/libexec/path_helper > /dev/null && eval $(/usr/libexec/path_helper -s)
-fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -f "${SDKMAN_PATH}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PATH}/bin/sdkman-init.sh"
 
 #Activate autojump if it is available
