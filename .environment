@@ -61,8 +61,8 @@ if [ "$(uname)" = "Darwin" ]; then
 	#Load homebrew paths on macOS if it's installed
 	if [ -f /opt/homebrew/bin/brew ]; then
 		eval "$(/opt/homebrew/bin/brew shellenv)"
-	elif [ -f /usr/local/homebrew/bin/brew ]; then
-		eval "$(/usr/local/homebrew/bin/brew shellenv)"
+	elif [ -f /usr/local/Homebrew/bin/brew ]; then
+		eval "$(/usr/local/Homebrew/bin/brew shellenv)"
 	fi
 fi
 
