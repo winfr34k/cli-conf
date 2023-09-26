@@ -30,9 +30,6 @@ alias nano="vim"
 alias emacs="emacs -nw"
 
 if [ "$(uname)" = "Darwin" ]; then
-    #Make IntelliJ command line startable
-    alias idea='open -a "$(ls -dt ${HOME}/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/*.app|head -1)"'
-
     #iOS
     alias pod="bundle exec pod"
     alias fastlane="bundle exec fastlane"
