@@ -4,6 +4,12 @@ alias md="mkdir"
 alias xcopy="cp"
 alias h="cd ${HOME}"
 
+#Quit like we're in vim
+alias ":q"="exit"
+alias ":q!"="exit"
+alias ":wq"="exit"
+alias ":x"="exit"
+
 if [[ -d "${REPOS_PATH}" ]]; then
     alias repos="cd ${REPOS_PATH}"
     alias r="repos"
